@@ -34,13 +34,15 @@ jobs:
       # Configure Git identity
       - name: Configure Git
         run: |
-          git config --global user.name "Prashu-369"
-          git config --global user.email "prasanthpadala2@gmail.com"
+          git config --global user.name "balajee-rm"
+          git config --global user.email "balajee.rm@gmail.com"
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          npm run deploy
+          git config --global user.name "balajee-rm"
+          git config --global user.email "balajee.rm@gmail.com"
+          npm install -g gh-pages
+          gh-pages -d dist -r https://x-access-token:${GITHUB_TOKEN}@github.com/balajee-rm/S109.git
